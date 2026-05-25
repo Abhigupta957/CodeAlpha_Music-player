@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Music Player</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+ 
+    <!-- ──  Player Card ── -->
+    <div class="player-card">
+
+      <!-- Vinyl / Album Art -->
+      <div class="vinyl-wrapper">
+        <div class="vinyl" id="vinyl">
+          <div class="vinyl-center"></div>
+        </div>
+      </div>
+
+      <!-- Song Info -->
+      <div class="song-info">
+        <h2 id="song-title">Chill Vibes</h2>
+        <p  id="song-artist">Lo-Fi Beats</p>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="progress-section">
+        <span id="current-time">0:00</span>
+        <div class="progress-track">
+          <input type="range" id="progress-bar" value="0" min="0" step="1" />
+        </div>
+        <span id="duration">0:00</span>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+        <button class="ctrl-btn" id="shuffle-btn" title="Shuffle">
+
+          <!-- Shuffle icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="16 3 21 3 21 8"/><polyline points="16 21 21 21 21 16"/>
+            <path d="M4 20L21 3"/><path d="M21 20L14.5 13.5M4 4l4.5 4.5"/>
+          </svg>
+        </button>
+        <button class="ctrl-btn" id="prev-btn" title="Previous">
+
+          <!-- Skip back icon -->
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/>
+          </svg>
+        </button>
+        <button class="play-btn" id="play-btn" title="Play/Pause">
+          <svg id="play-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          <svg id="pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display:none">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+          </svg>
+        </button>
+        <button class="ctrl-btn" id="next-btn" title="Next">
+
+          <!-- Skip forward icon -->
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6 18l8.5-6L6 6v12zm2-8.14L11.03 12 8 14.14V9.86zM16 6h2v12h-2z"/>
+          </svg>
+        </button>
+        <button class="ctrl-btn" id="repeat-btn" title="Repeat">
+
+          <!-- Repeat icon -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="17 1 21 5 17 9"/>
+            <path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+            <polyline points="7 23 3 19 7 15"/>
+            <path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Volume -->
+      <div class="volume-section">
+        <svg class="vol-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 7.97v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/>
+        </svg>
+        <div class="volume-track">
+          <input type="range" id="volume-bar" min="0" max="100" value="80" />
+        </div>
+        <span id="volume-label">80%</span>
+      </div>
+
+    </div>
+
+    <!-- ── Playlist Panel ── -->
+    <div class="playlist-panel">
+
+      <div class="playlist-header">
+        <h3>Playlist</h3>
+        <label class="autoplay-label">
+          <input type="checkbox" id="autoplay-toggle" checked />
+          <span class="checkmark"></span>
+          Autoplay
+        </label>
+      </div>
+
+      <ul id="playlist"></ul>
+
+    </div>
+
+  </div>
+
+  <audio id="audio"></audio>
+  <script src="app.js"></script>
+</body>
+</html>
